@@ -27,7 +27,8 @@ try:
         my_dict = dict()
         for i in purchases:
             if i.get("category") in my_dict:
-                my_dict[i.get("category")].append(i.get("item"))
+                if i.get("item") not in my_dict[i.get("category")]:
+                    my_dict[i.get("category")].append(i.get("item"))
             else:
                 my_dict[i.get("category")] = [i.get("item")]
         return my_dict
